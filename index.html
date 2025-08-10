@@ -9,7 +9,7 @@
   const letters='abcdefghijklmnopqrstuvwxyz';
   const randomLetter=letters[Math.floor(Math.random()*letters.length)];
   const randomPage=Math.floor(Math.random()*50)+1;
-  const url=`https://games.roblox.com/v1/games/list?keyword=${randomLetter}&startRows=${randomPage*10}&maxRows=10&sortOrder=Asc`;
+ const url = `https://your-netlify-site.netlify.app/.netlify/functions/proxy?keyword=${randomLetter}&startRows=${randomPage*10}&maxRows=10`;
   try {
     const res=await fetch(url);
     const json=await res.json();
