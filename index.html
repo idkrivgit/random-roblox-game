@@ -1,0 +1,29 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Random Roblox Game</title>
+<script>
+(async()=>{
+  const letters='abcdefghijklmnopqrstuvwxyz';
+  const randomLetter=letters[Math.floor(Math.random()*letters.length)];
+  const randomPage=Math.floor(Math.random()*50)+1;
+  const url=`https://games.roblox.com/v1/games/list?keyword=${randomLetter}&startRows=${randomPage*10}&maxRows=10&sortOrder=Asc`;
+  try {
+    const res=await fetch(url);
+    const json=await res.json();
+    const games=json.data||[];
+    if(!games.length) throw new Error("No games found.");
+    const game=games[Math.floor(Math.random()*games.length)];
+    window.location.href=`https://www.roblox.com/games/${game.id}`;
+  } catch(err) {
+    document.body.innerHTML = `<h1>Error: ${err.message}</h1>`;
+  }
+})();
+</script>
+</head>
+<body>
+<h1>Finding a random Roblox game...</h1>
+</body>
+</html>
