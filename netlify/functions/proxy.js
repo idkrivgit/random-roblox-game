@@ -1,8 +1,8 @@
 exports.handler = async (event) => {
   const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
-  const { keyword = 'a', startRows = '0', maxRows = '10' } = event.queryStringParameters || {};
+  const { keyword = 'a', cursor = '', limit = '10' } = event.queryStringParameters || {};
 
-  const url = `https://games.roblox.com/v1/games/list?keyword=${keyword}&startRows=${startRows}&maxRows=${maxRows}&sortOrder=Asc`;
+  const url = `https://games.roblox.com/v1/games/search?keyword=${keyword}&limit=${limit}&cursor=${cursor}`;
 
   try {
     const response = await fetch(url);
