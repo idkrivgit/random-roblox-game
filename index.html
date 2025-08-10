@@ -8,7 +8,7 @@
   <script>
     async function fetchRandomGame() {
       let tries = 0;
-      while (tries < 100) {
+      while (tries < 1000) {
         const randomLetter = String.fromCharCode(97 + Math.floor(Math.random() * 26)); // a-z
         const randomPage = Math.floor(Math.random() * 20); // pages 0-19
         const url = `https://zingy-smakager-9fc1b7.netlify.app/.netlify/functions/proxy?keyword=${randomLetter}&limit=10&cursor=`;
@@ -27,7 +27,7 @@
         }
         tries++;
       }
-      alert("Sorry, no games found after several tries. Please refresh to try again.");
+      alert("na not this time sorry.");
     }
     fetchRandomGame();
   </script>
