@@ -23,14 +23,14 @@
             return;
           }
         } catch (err) {
-          // just try again
+          // Ignore error and try again
         }
         tries++;
       }
-      alert("Couldn't find a game after several tries, please refresh.");
+      alert("Sorry, no games found after several tries. Please refresh to try again.");
     }
-
     fetchRandomGame();
   </script>
 </body>
 </html>
+
